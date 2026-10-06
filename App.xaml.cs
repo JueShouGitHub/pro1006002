@@ -9,6 +9,7 @@ public partial class App : Application
 
 	protected override Window CreateWindow(IActivationState? activationState)
 	{
-		return new Window(new MainPage()) { Title = "pro1006002" };
+		var navigationPage = new NavigationPage(new MainPage());
+		return new Window(navigationPage) { Title = "pro1006002" };
 	}
 }

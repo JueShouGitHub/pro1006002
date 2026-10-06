@@ -1,9 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
-        <TargetFrameworks>net10.0-android</TargetFrameworks>
-        <TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('linux'))">$(TargetFrameworks);net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
-        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
+        <TargetFramework>net10.0-android</TargetFramework>
 
         <!-- Note for MacCatalyst:
             The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
@@ -29,7 +27,7 @@
         <MauiXamlInflator>SourceGen</MauiXamlInflator>
 
         <!-- Display name -->
-        <ApplicationTitle>pro1006002</ApplicationTitle>
+        <ApplicationTitle>测试包</ApplicationTitle>
 
         <!-- App Identifier -->
         <ApplicationId>com.tevl.gfgnds</ApplicationId>
@@ -70,6 +68,11 @@
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
+    
+        <PackageReference Include="Adjust.Maui.Sdk" Version="5.5.0" />
+        <PackageReference Include="Xamarin.GooglePlayServices.Ads.Identifier" Version="118.2.0.1" />
+        <PackageReference Include="Xamarin.Google.Android.InstallReferrer" Version="2.2.0.2" />
+        <PackageReference Include="Xamarin.GooglePlayServices.AppSet" Version="116.1.0.4" />
     </ItemGroup>
 
 
