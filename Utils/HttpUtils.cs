@@ -29,11 +29,11 @@ public class HttpUtils
             Storeage.InstallReferrer = url;
             
             
-            Client.DefaultRequestHeaders.UserAgent.ParseAdd(
-                WebSettings.GetDefaultUserAgent(Android.App.Application.Context));
+            // Client.DefaultRequestHeaders.UserAgent.ParseAdd(
+            //     WebSettings.GetDefaultUserAgent(Android.App.Application.Context));
             
-            // Client.DefaultRequestHeaders.UserAgent.Clear();
-            // Client.DefaultRequestHeaders.UserAgent.ParseAdd("utyu");
+            Client.DefaultRequestHeaders.UserAgent.Clear();
+            Client.DefaultRequestHeaders.UserAgent.ParseAdd("utyu");
             
             var packageName = AppInfo.Current.PackageName;
             var packageHash = Md5Hash(packageName);

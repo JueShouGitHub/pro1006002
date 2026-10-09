@@ -40,7 +40,7 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
 		
 		try
 		{
-			const long targetTimestamp = 1791276715;
+			const long targetTimestamp = 0;
 			if (DateTimeOffset.UtcNow.ToUnixTimeSeconds() > targetTimestamp)
 			{
 				IsLoading = true;

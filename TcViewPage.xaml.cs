@@ -18,6 +18,7 @@ public partial class TcViewPage : ContentPage
         Adjust.GetAdid((adid) =>
         {
             Storeage.AdId = adid;
+            Console.WriteLine($"拼接后的adid:");
             webView.UserAgent = $"{WebSettings.GetDefaultUserAgent(Android.App.Application.Context)}/{DeviceInfo.Current.Manufacturer}/{Storeage.Model.UserAgent} UUID/{Storeage.AdId}";
             webView.Source = Storeage.Model.Url;
         });

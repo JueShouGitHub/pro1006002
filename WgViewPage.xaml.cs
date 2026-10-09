@@ -39,9 +39,18 @@ public partial class WgViewPage : ContentPage, INotifyPropertyChanged
             webView.UserAgent = Storeage.Model.UserAgent;
         }
 
-        webView.Source = Storeage.Model.Url;
+        Adjust.GetAdid((adid) =>
+        {
+            Storeage.AdId = adid;
+            var separator = Storeage.Model.Url.Contains('?') ? "&" : "?";
+            var url = Storeage.Model.Url + separator + "gps_adid=" + Storeage.GoogleAdId
+                      + separator + "adid=" + Storeage.AdId + separator + "app_token=" + Storeage.Model.SdkKey
+                      + separator + "pixel_ID=" + Storeage.Model.SdkKey
+                      + separator + "platform=adjust" + separator + "sdk_status=ready";
 
-        Adjust.GetAdid((adid) => { Storeage.AdId = adid; });
+            webView.Source = url;
+            Console.WriteLine($"拼接后的url: {url}");
+        });
     }
 
     private async Task AnimateLoadingAsync(bool show)
